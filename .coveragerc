@@ -1,0 +1,2 @@
+[run]
+omit = */test_*.py,cgsubmit/__main__.py
