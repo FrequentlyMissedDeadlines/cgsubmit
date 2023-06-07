@@ -8,6 +8,13 @@
 # codingame-submit
 A tool to analyze the results of your submits in codingame competitions and save a lot of time.
 
+It will automatically:
+- retrieve all the games you lost by timeout (code too slow, or runtime error). Fixing these issues should always be your number 1 priority.
+- sort the game you lost by biggest score difference. This way you can easily focus on the games you totally lost as there might be some cases you don't handle properly or you have bugs.
+
+![](https://raw.githubusercontent.com/FrequentlyMissedDeadlines/cgsubmit/main/Doc/output.png)
+![](https://raw.githubusercontent.com/FrequentlyMissedDeadlines/cgsubmit/main/Doc/Codingame.PNG)
+
 ## Installation
 ```
 pip install cgsubmit
@@ -25,5 +32,5 @@ To retrieve it:
 ### Run
 
 ```
-python -m cgsubmit your-test-session-handle
+python -m cgsubmit -t your-test-session-handle
 ```

@@ -5,9 +5,12 @@ from os.path import abspath, dirname, join
 # This will be used for the "long_description" field.
 README_MD = open(join(dirname(abspath(__file__)), "README.md")).read()
 
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
+
 setup(
     name="cgsubmit",
-    version="1.0.0",
+    version="1.0.5",
     packages=find_namespace_packages(include=['cgsubmit', 'cgsubmit.*'], exclude=['*.tests*']),
     description="Analyse your submit in codingame competitions.",
     long_description=README_MD,
@@ -30,8 +33,9 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11"
     ],
+    install_requires=required,
     project_urls={
         'Bug Reports': 'https://github.com/FrequentlyMissedDeadlines/cgsubmit/issues',
         'Source': 'https://github.com/FrequentlyMissedDeadlines/cgsubmit',
-    },
+    }
 )
