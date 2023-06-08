@@ -5,6 +5,15 @@ class TestGames(unittest.TestCase):
         {
             "players": [
                 {
+                    "position": 1,
+                    "nickname": "Player 1"
+                }
+            ],
+            "gameId": 105
+        },
+        {
+            "players": [
+                {
                     "position": 0,
                     "nickname": "Player 1"
                 },
@@ -39,8 +48,9 @@ class TestGames(unittest.TestCase):
         self.assertEqual(games.number_by_id[200], 1)
         self.assertEqual(len(games.win), 1)
         self.assertEqual(games.win[0]['gameId'], 100)
-        self.assertEqual(len(games.lost), 1)
-        self.assertEqual(games.lost[0], 200)
+        self.assertEqual(len(games.lost), 2)
+        self.assertEqual(games.lost[0], 105)
+        self.assertEqual(games.lost[1], 200)
 
         games = Games(self.mocked_games[::-1])
         self.assertEqual(games.pseudo, 'Player 1')
