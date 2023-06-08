@@ -38,7 +38,7 @@ class Games:
     
     def get_win_and_lost(self, games, pseudo):
         wins = [a for a in games if (a['players'][0]['nickname'] == pseudo and a['players'][0]['position'] == 0) or \
-                (a['players'][1]['nickname'] == pseudo and a['players'][1]['position'] == 0)]
+                (len(a['players']) > 1 and a['players'][1]['nickname'] == pseudo and a['players'][1]['position'] == 0)]
         losts = [a['gameId'] for a in games if a not in wins]
         return (wins, losts)
     
