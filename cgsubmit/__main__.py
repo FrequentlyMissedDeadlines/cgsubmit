@@ -3,12 +3,14 @@
 import argparse
 from cgsubmit.api import *
 from cgsubmit.games import *
+import sys
 
 def main():
     parser = argparse.ArgumentParser(description='Analyse your submit in codingame competitions.')
     parser.add_argument('-t', '--testsessionhandle', required=True, help='The test session handle. If you don\'t know how to get it, look at the doc: https://github.com/FrequentlyMissedDeadlines/cgsubmit')
    
     args = parser.parse_args()
+    sys.stdout.reconfigure(encoding='utf-8')
 
     try:
         api = Api(args.testsessionhandle)

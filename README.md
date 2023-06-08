@@ -34,3 +34,10 @@ To retrieve it:
 ```
 python -m cgsubmit -t your-test-session-handle
 ```
+
+### Known issues
+
+If you are using git bash to run the command you might see this kind of error: ```'charmap' codec can't encode character '\u274c' in position 0: character maps to <undefined>```
+
+You must go to the settings and set the encoding to UTF-8:
+![](https://raw.githubusercontent.com/FrequentlyMissedDeadlines/cgsubmit/main/Doc/utf8.PNG)
