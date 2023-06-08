@@ -37,7 +37,7 @@ def main():
 
         
     except Exception as exception:
-        print(exception)
+        print(str(exception))
 
 if __name__ == '__main__':
 	main()
