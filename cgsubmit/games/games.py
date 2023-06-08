@@ -11,6 +11,9 @@ class Games:
 
         i = 0
         while i < len(games):
+            if len(games[i]['players']) <= 1:
+                i = i + 1
+                continue
             if player1 == '':
                 player1 = games[i]['players'][0]['nickname']
                 player2 = games[i]['players'][1]['nickname']

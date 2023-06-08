@@ -69,6 +69,15 @@ class TestGames(unittest.TestCase):
                         }
                     ],
                     "gameId": 100
+                },
+                {
+                    "players": [
+                        {
+                            "position": 0,
+                            "nickname": "Player 1"
+                        }
+                    ],
+                    "gameId": 100
                 }
             ])
         except Exception as exception:
