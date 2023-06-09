@@ -10,7 +10,7 @@ with open('requirements.txt') as f:
 
 setup(
     name="cgsubmit",
-    version="1.0.9",
+    version="1.1.0",
     packages=find_namespace_packages(include=['cgsubmit', 'cgsubmit.*'], exclude=['*.tests*']),
     description="Analyse your submit in codingame competitions.",
     long_description=README_MD,
