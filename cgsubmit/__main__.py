@@ -6,9 +6,10 @@ from cgsubmit.games import *
 import sys
 
 def main():
-    parser = argparse.ArgumentParser(description='Analyse your submit in codingame competitions.')
-    parser.add_argument('-t', '--testsessionhandle', required=True, help='The test session handle. If you don\'t know how to get it, look at the doc: https://github.com/FrequentlyMissedDeadlines/cgsubmit')
-   
+    parser = argparse.ArgumentParser(description='Analyse your submit in codingame competitions.', prog='cgsubmit')
+    parser.add_argument('-t', '--testsessionhandle', metavar='TOKEN', required=True, help='The test session handle. If you don\'t know how to get it, look at the doc: https://github.com/FrequentlyMissedDeadlines/cgsubmit')
+    parser.add_argument('--noreplay', required=False, help='Remove replay URLs.', action='store_true')
+
     args = parser.parse_args()
     sys.stdout.reconfigure(encoding='utf-8')
 
@@ -27,7 +28,10 @@ def main():
         if len(timeouts) > 0:
             print('❌Total timeouts {0}'.format(len(timeouts)))
             for timeout in timeouts:
-                print('⌛Timeout in game #{1} https://www.codingame.com/replay/{0}'.format(timeout['gameId'], games.number_by_id[timeout['gameId']]))
+                if args.noreplay:
+                    print('⌛Timeout in game #{0}'.format(games.number_by_id[timeout['gameId']]))
+                else:
+                    print('⌛Timeout in game #{1} https://www.codingame.com/replay/{0}'.format(timeout['gameId'], games.number_by_id[timeout['gameId']]))
         else:
             print('✅ No timeouts detected')
 
@@ -35,8 +39,10 @@ def main():
 
         print()
         for game in lost_games:
-            print('➤ Lost game #{2} https://www.codingame.com/replay/{0} by {1} points'.format(game['gameId'], abs(game['scores'][0] - game['scores'][1]), games.number_by_id[game['gameId']]))
-
+            if args.noreplay:
+                print('➤ Lost game #{1} by {0} points'.format(abs(game['scores'][0] - game['scores'][1]), games.number_by_id[game['gameId']]))
+            else:
+                print('➤ Lost game #{2} https://www.codingame.com/replay/{0} by {1} points'.format(game['gameId'], abs(game['scores'][0] - game['scores'][1]), games.number_by_id[game['gameId']])) 
         
     except Exception as exception:
         print(str(exception))
