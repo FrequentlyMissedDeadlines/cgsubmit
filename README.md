@@ -43,7 +43,7 @@ or for a most advanced usage use `-h` option to get the description of all param
 
 ```
 python -m cgsubmit -h
-usage: cgsubmit [-h] -t TOKEN [--noreplay]
+usage: cgsubmit [-h] -t TOKEN [--noreplay] [--noelo]
 
 Analyse your submit in codingame competitions.
 
@@ -52,6 +52,7 @@ options:
   -t TOKEN, --testsessionhandle TOKEN
                         The test session handle. If you don't know how to get it, look at the doc: https://github.com/FrequentlyMissedDeadlines/cgsubmit
   --noreplay            Remove replay URLs.
+  --noelo               Remove opponent rank.
 ```
 
 ### Known issues

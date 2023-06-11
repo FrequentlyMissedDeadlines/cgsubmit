@@ -9,6 +9,7 @@ def main():
     parser = argparse.ArgumentParser(description='Analyse your submit in codingame competitions.', prog='cgsubmit')
     parser.add_argument('-t', '--testsessionhandle', metavar='TOKEN', required=True, help='The test session handle. If you don\'t know how to get it, look at the doc: https://github.com/FrequentlyMissedDeadlines/cgsubmit')
     parser.add_argument('--noreplay', required=False, help='Remove replay URLs.', action='store_true')
+    parser.add_argument('--noelo', required=False, help='Remove opponent rank.', action='store_true')
 
     args = parser.parse_args()
     sys.stdout.reconfigure(encoding='utf-8')
@@ -39,11 +40,15 @@ def main():
 
         print()
         for game in lost_games:
-            if args.noreplay:
-                print('➤ Lost game #{1} by {0} points'.format(abs(game['scores'][0] - game['scores'][1]), games.number_by_id[game['gameId']]))
+            oponent_id = 0 if game['agents'][1]['codingamer']['pseudo'] == games.pseudo else 1
+            if args.noelo:
+                opponent_elo = ''
             else:
-                print('➤ Lost game #{2} https://www.codingame.com/replay/{0} by {1} points'.format(game['gameId'], abs(game['scores'][0] - game['scores'][1]), games.number_by_id[game['gameId']])) 
-        
+                opponent_elo = '[opponent elo {0:.2f}] '.format(game['agents'][oponent_id]['score'])
+            if args.noreplay:
+                print('➤ Lost game #{1} {2}by {0} points'.format(abs(game['scores'][0] - game['scores'][1]), games.number_by_id[game['gameId']], opponent_elo))
+            else:
+                print('➤ Lost game #{2} {3}https://www.codingame.com/replay/{0} by {1} points'.format(game['gameId'], abs(game['scores'][0] - game['scores'][1]), games.number_by_id[game['gameId']], opponent_elo))
     except Exception as exception:
         print(str(exception))
 
