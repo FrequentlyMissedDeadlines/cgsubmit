@@ -1,0 +1,6 @@
+setuptools
+wheel
+twine
+mock
+pytest-mock
+pytest-cov
