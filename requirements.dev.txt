@@ -4,3 +4,4 @@ twine
 mock
 pytest-mock
 pytest-cov
+flake8
