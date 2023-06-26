@@ -24,7 +24,7 @@ jobs:
         python -m pip install pytest-cov
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Build package
-      run: python setup.py sdist bdist_wheel
+      run: python -m build
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@release/v1
       with:

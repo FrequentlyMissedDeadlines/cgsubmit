@@ -1,9 +1,51 @@
+[project]
+name = "cgsubmit"
+version = "1.2.1"
+authors = [
+    { name = "FrequentlyMissedDeadlines", email = "FrequentlyMissedDeadlines+cgsubmit@gmail.com" },
+]
+description = "Analyse your submit in codingame competitions."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: End Users/Desktop",
+    "Natural Language :: English",
+    "Topic :: Software Development",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11"
+]
+keywords = ['CodinGame']
+dependencies = [
+    "requests",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/FrequentlyMissedDeadlines/cgsubmit"
+'Bug Reports' = 'https://github.com/FrequentlyMissedDeadlines/cgsubmit/issues'
+'Source' = 'https://github.com/FrequentlyMissedDeadlines/cgsubmit'
+
 [build-system]
 requires = [
-    "setuptools>=42",
+    "setuptools>=61.0",
     "wheel"
 ]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+include = ['cgsubmit', 'cgsubmit*']
+exclude = ['*.tests*']
+namespaces = false
+
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra -q"
