@@ -31,7 +31,7 @@ To retrieve it:
 
 1. open the IDE of the game you are playing in your browser (for example [https://www.codingame.com/ide/puzzle/spring-challenge-2023-ants](https://www.codingame.com/ide/puzzle/spring-challenge-2023-ants))
 2. open the Developer Tools (F12)
-3. look for this query and get the `handle` value: ![](https://raw.githubusercontent.com/FrequentlyMissedDeadlines/cgsubmit/main/Doc/handle.png)
+3. look for one of this queries and get the `handle` value: ![](https://raw.githubusercontent.com/FrequentlyMissedDeadlines/cgsubmit/main/Doc/handle.png)![](https://raw.githubusercontent.com/FrequentlyMissedDeadlines/cgsubmit/main/Doc/handle2.png)
 
 ### Run
 
